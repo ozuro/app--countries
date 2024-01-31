@@ -1,13 +1,38 @@
 import { NgModule } from '@angular/core';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { ByCapitalPageComponent } from './page/by-capital-page/by-capital-page.component';
+import { ByCountryPageComponent } from './page/by-country-page/by-country-page.component';
+import { ByRegionPageComponent } from './page/by-region-page/by-region-page.component';
+import { CountryPageComponent } from './page/country-page/country-page.component';
 
-  const routes: Routes=[{
-    
-  }];
+  const routes: Routes=[
+    {
+    path:'by-capital',
+    component:ByCapitalPageComponent
+    },
+    {
+      path:'by-country',
+      component:ByCountryPageComponent
+      },
+      {
+        path:'by-region',
+        component:ByRegionPageComponent
+      },
+      {
+        path:'by/:id',
+        component:CountryPageComponent
+      }
+
+];
 
 
 @NgModule({
-  imports: [],
-  exports: []
+  imports: [
+    // porque ya tiene una ruta principal
+    RouterModule.forChild(routes),
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class CountriesRoutingModule { }
