@@ -22,6 +22,12 @@ import { CountryPageComponent } from './page/country-page/country-page.component
         path:'by/:id',
         component:CountryPageComponent
       }
+,
+    {
+      path:'**',
+      redirectTo:'by-capital'
+    }
+
 
 ];
 
