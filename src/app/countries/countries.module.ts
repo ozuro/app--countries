@@ -5,17 +5,19 @@ import { ByCountryPageComponent } from './page/by-country-page/by-country-page.c
 import { ByRegionPageComponent } from './page/by-region-page/by-region-page.component';
 import { CountryPageComponent } from './page/country-page/country-page.component';
 import { CountriesRoutingModule } from './countries-routing.module';
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
-  declarations: [
-    ByCapitalPageComponent,
-    ByCountryPageComponent,
-    ByRegionPageComponent,
-    CountryPageComponent
-  ],
-  imports: [
-    CommonModule,
-    CountriesRoutingModule
-  ],
+    declarations: [
+        ByCapitalPageComponent,
+        ByCountryPageComponent,
+        ByRegionPageComponent,
+        CountryPageComponent
+    ],
+    imports: [
+        CommonModule,
+        CountriesRoutingModule,
+        SharedModule
+    ]
 })
 export class CountriesModule {}
