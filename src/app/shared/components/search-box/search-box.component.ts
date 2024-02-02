@@ -8,10 +8,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class SearchBoxComponent {
 
   @Input()
-  public placeholder: string='Escriba su Busqueda';
+  public placeholder: string='';
 
   @Output()
-  public onValue = new EventEmitter<string>()
+  public onValue= new EventEmitter<string>();
 
 
   emitValue(value: string):void {
