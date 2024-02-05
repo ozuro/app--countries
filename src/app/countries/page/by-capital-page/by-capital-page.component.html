@@ -5,7 +5,7 @@
     Busqueda
     <shared-search-box
       (onValue)="searchByCapital($event)"
-     
+
     ></shared-search-box>
 
   </div>
@@ -13,7 +13,12 @@
 <hr>
 <div class="row">
   <div class="col">
-    Tabla de resultados
+    <ul>
+      <li *ngFor="let item of countries">
+          {{item.capital}}-{{item.population}}
+      </li>
+    </ul>
+
   </div>
 
 </div>
