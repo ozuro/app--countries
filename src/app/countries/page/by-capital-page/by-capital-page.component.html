@@ -12,12 +12,11 @@
 </div>
 <hr>
 <div class="row">
+
   <div class="col">
-    <ul>
-      <li *ngFor="let item of countries">
-          {{item.capital}}-{{item.population}}
-      </li>
-    </ul>
+
+    <hr>
+    <countries-table [countries]="countries"></countries-table>
 
   </div>
 
