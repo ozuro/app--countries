@@ -46,4 +46,15 @@ export class CountryService {
 
   }
 
+  searchCountryByAplhaCode(code: string): Observable<Country[]> {
+    const url = `${this.apiUrl}/alpha/${code}`
+    return this.http.get<Country[]>(url).pipe(
+      // tap(countries => console.log('paso por el tap', countries))
+      catchError(error => {
+        // console.log(error)
+        return of([])
+      })
+      );
+  }
+
 }
