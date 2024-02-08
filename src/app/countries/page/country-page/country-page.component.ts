@@ -11,19 +11,29 @@ import { CountryService } from '../../services/country.service';
   ]
 })
 export class CountryPageComponent implements OnInit {
+  public country?: Country;
+
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private countriesService: CountryService
+    private countriesService: CountryService,
+    private router: Router,
+
   ) {
 
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(id => {
-      this.countriesService.searchCountryByAplhaCode(id).subscribe(country => { console.log(country) })
+    this.activatedRoute.params
+      .pipe(
+        switchMap(({ id }) => this.countriesService.searchCountryByAplhaCode(id)),
+      )
+      .subscribe(country => {
+        if (!country) return this.router.navigateByUrl('');
+        return this.country = country;
 
-    })
+
+      });
   }
 
 
